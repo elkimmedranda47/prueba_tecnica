@@ -1,0 +1,52 @@
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api/v1
+  error:
+    include-message: always
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+  sql:
+    init:
+      platform: postgres
+  datasource:
+    url: jdbc:postgresql://localhost:5432/pruebaTecnica
+    username: postgres
+    password: contrasena
+    driver-class-name: org.postgresql.Driver
+
+security:
+  jwt:
+    token:
+      secret-key: elkinpasssecretoelkinpasssecretoelkinpasssecretoelkinpasssecretoelkinpasssecreto
+      expire-length: 36000
+
+
+
+
+
